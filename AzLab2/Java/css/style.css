@@ -1,0 +1,46 @@
+body{
+    margin: 30px;
+}
+
+.raz { 
+    -moz-appearance: textfield;
+  }
+.raz::-webkit-inner-spin-button { 
+    display: none;
+}
+
+table
+{ 
+    margin-left: auto;
+    margin-right: auto;
+	border: 2px solid black;
+	background: #fc3;
+}
+form
+{
+	background-color:#f5f77c;
+}
+
+th
+{
+	text-align: center
+}
+p
+{
+	font-weight: bold;
+}
+hr{
+    display:block;
+    height:15px;
+    background-color: blue;
+}
+
+.hrdiv{
+    height: 1px;
+    background-color:black;
+}
+
+.righbut{
+    margin-top: 8px;
+    margin-left: 20px;
+}

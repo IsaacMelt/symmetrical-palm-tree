@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>GamesTableHtml</title>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
+    <section>
+        <div>
+            <div>
+                <div>
+                    <form>
+                        <fieldset>
+                            <p> Название программы </p>
+
+                            <input type="text" class="form-control" name="" id="name">
+
+                            <p> Язык программирования </p>
+
+                            <input type="text" class="form-control raz" name="" id="language">
+
+                            <p> Создатель </p>
+
+                            <input type="text" class="form-control raz" name="" id="author">
+
+                            <p> Год выпуска </p>
+
+                            <input type="number" class="form-control raz" name="" id="release_year">
+
+                            <p> Цена подписки </p>
+
+                            <input type="number" class="form-control raz" name="" id="price">
+    
+                            <br>
+                            <button type="button" id="create">Add</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <div></div>
+    <br>
+    <section>
+        <div>
+            <div>
+                <div>
+
+                    <br>
+                    <table id="programs">
+                        <thead>
+                            <tr>
+                                <th>Название программы</th>
+                                <th>Язык программирования</th>
+                                <th>Создатель</th>
+                                <th>Год выпуска</th>
+                                <th>Цена подписки</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        let color_button= document.getElementById('create');
+        let tablePrograms = document.getElementById('programs');
+        $(function () {
+                $("#create").click(
+                
+                function () {
+                    let row = document.createElement('tr');
+
+                    let td = document.createElement('td');
+                    td.innerText = document.getElementById('name').value;
+                    row.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.innerText = document.getElementById('language').value;
+                    row.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.innerText = document.getElementById('author').value;
+                    row.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.innerText = document.getElementById('release_year').value;
+                    row.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.innerText = document.getElementById('price').value;
+                    row.appendChild(td);
+
+                    let button = document.createElement('button');
+                    button.innerText = "Delete";
+                    button.className = "btn btn-danger righbut deleteDep";
+                    button.type  = 'button';
+                    row.appendChild(button);
+
+                    tablePrograms.children[1].appendChild(row);
+                    alert("Data is created successfully");
+                });
+
+        }); 
+        $('body').on('click', 'button.deleteDep', function() {
+        $(this).parents('tr').remove();  
+        alert("Data removed successfully")
+        });
+    </script>
+</body>
+</html>

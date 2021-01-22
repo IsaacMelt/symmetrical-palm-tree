@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>GamesTableHtml</title>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
+    <section>
+        <div>
+            <div>
+                <div>
+                    <form>
+                        <fieldset>
+                            <p> Game Name</p>
+
+                            <input type="text" class="form-control" name="" id="name">
+
+                            <p> release_date</p>
+
+                            <input type="date" class="form-control raz" name="" id="release_date">
+
+                            <p> author</p>
+
+                            <input type="text" class="form-control raz" name="" id="author">
+
+                            <p> game_engine</p>
+
+                            <input type="text" class="form-control raz" name="" id="game_engine">
+
+                            <p> price</p>
+
+                            <input type="number" class="form-control raz" name="" id="price">
+    
+                            <br>
+                            <button type="button" id="create">Add</button>
+                            <button type="button" id="removeAll">Clear all</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <div></div>
+    <br>
+    <section>
+        <div>
+            <div>
+                <div>
+
+                    <br>
+                    <table id="games">
+                        <thead>
+                            <tr>
+                                <th>name</th>
+                                <th>release_date</th>
+                                <th>author</th>
+                                <th>game_engine</th>
+                                <th>price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        let color_button= document.getElementById('create');
+        let tableGames = document.getElementById('games');
+        $(function () {
+                $("#create").click(
+                
+                function () {
+                    let row = document.createElement('tr');
+
+                    let td = document.createElement('td');
+                    td.innerText = document.getElementById('name').value;
+                    row.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.innerText = document.getElementById('release_date').value;
+                    row.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.innerText = document.getElementById('author').value;
+                    row.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.innerText = document.getElementById('game_engine').value;
+                    row.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.innerText = document.getElementById('price').value;
+                    row.appendChild(td);
+
+                    let button = document.createElement('button');
+                    button.innerText = "Delete";
+                    button.className = "btn btn-danger righbut deleteDep";
+                    button.type  = 'button';
+                    row.appendChild(button);
+
+                    tableGames.children[1].appendChild(row);
+                    alert("Data is created successfully");
+                });
+
+        }); 
+        $('body').on('click', 'button.deleteDep', function() {
+        $(this).parents('tr').remove();  
+        alert("Data removed successfully")
+        });
+        $(function () {
+                $("#removeAll").click(
+
+                function () {
+                    var tableHeaderRowCount = 1;
+                    var table = document.getElementById("students");
+                    var rowCount = table.rows.length;
+                    for (var i = tableHeaderRowCount; i < rowCount; i++) {
+                    table.deleteRow(tableHeaderRowCount);
+                    }
+                    alert("Data is removed successfully");
+                });
+            }); 
+    </script>
+</body>
+</html>
